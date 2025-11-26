@@ -1,0 +1,322 @@
+:root{
+  --primary:#007bff;
+  --primary-dark:#0056b3;
+  --bg:#f7f9fc;
+  --card:#fff;
+  --muted:#666;
+}
+
+*{box-sizing:border-box}
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  margin:0; padding:0; background:var(--bg); color:#111;
+  -webkit-font-smoothing:antialiased;
+}
+
+header{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 1.25rem; background:var(--primary); color:white;
+  position:sticky; top:0; z-index:50;
+}
+
+header h1{margin:0; font-size:1.2rem}
+.header-actions{display:flex; gap:1rem; align-items:center}
+.header-actions > div{cursor:default; font-size:1rem}
+.header-actions span{margin-left:0.35rem; font-weight:700}
+
+/* Filters */
+.filters{
+  display:flex; gap:1rem; justify-content:center; padding:1rem;
+  flex-wrap:wrap; background:#fff; border-bottom:1px solid #e6eefc;
+}
+.filters input, .filters select{
+  padding:0.5rem 0.75rem; border:1px solid #ddd; border-radius:6px;
+  font-size:0.95rem;
+}
+
+/* Product grid */
+main{padding:1rem}
+.products{
+  display:grid; gap:1rem; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+}
+.product{
+  background:var(--card); padding:0.9rem; border-radius:8px; border:1px solid #e6e6e6;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.product:hover{transform:translateY(-6px); box-shadow:0 6px 18px rgba(15,30,60,.08)}
+.product img{width:100%; height:150px; object-fit:cover; border-radius:6px;}
+.product h3{margin:0.6rem 0 0.25rem; font-size:1rem}
+.product p{margin:0.15rem 0; color:var(--muted); font-size:0.9rem}
+
+/* buttons */
+.btn{
+  padding:0.45rem 0.7rem; border:none; border-radius:6px; cursor:pointer; font-weight:600;
+}
+.btn-primary{background:var(--primary); color:white}
+.btn-primary:hover{background:var(--primary-dark)}
+.btn-outline{background:white; border:1px solid #ddd; color:#333}
+.product .actions{display:flex; gap:0.5rem; margin-top:0.6rem}
+
+/* Modal */
+.modal.hidden{display:none}
+.modal{position:fixed; inset:0; z-index:80; display:flex; align-items:center; justify-content:center}
+.modal-backdrop{position:absolute; inset:0; background:rgba(0,0,0,0.4)}
+.modal-content{
+  position:relative; z-index:90; width:92%; max-width:940px; background:var(--card);
+  border-radius:10px; padding:1rem; box-shadow:0 12px 40px rgba(0,0,0,.2);
+}
+.modal-close{position:absolute; right:10px; top:10px; border:none; background:transparent; font-size:1.1rem; cursor:pointer}
+.modal-body{display:flex; gap:1rem; align-items:flex-start}
+.modal-image img{width:340px; max-width:35vw; height:300px; object-fit:cover; border-radius:8px}
+.modal-info{flex:1}
+.modal-info h2{margin:0 0 .35rem}
+.modal-category{color:var(--muted); margin:0 0 .35rem}
+.modal-price{font-weight:800; margin:0 0 .5rem}
+.modal-desc{color:#333; margin-bottom:0.75rem}
+.modal-actions{display:flex; gap:0.5rem}
+
+/* Wishlist text button style */
+.wishlist-btn{
+  background:#fff; border:1px solid #ddd; padding:0.46rem 0.7rem; border-radius:6px; cursor:pointer;
+}
+.wishlist-btn.saved{
+  background:#ffecec; border-color:#ffb6b6; color:#b22222; font-weight:700;
+}
+
+/* responsive */
+@media (max-width:800px){
+  .modal-body{flex-direction:column; align-items:center}
+  .modal-image img{width:90%; height:auto}
+  .products{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+}
+
+/* -------------------------------
+   Global Styling
+--------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f6fa;
+  color: #222;
+  padding: 20px;
+}
+
+/* Page container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* -------------------------------
+   Heading
+--------------------------------*/
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 30px;
+  color: #333;
+}
+
+/* -------------------------------
+   Filters + Sorting Section
+--------------------------------*/
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+select, input {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  min-width: 150px;
+}
+
+select:focus, input:focus {
+  border-color: #007bff;
+}
+
+/* -------------------------------
+   Product Grid
+--------------------------------*/
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.product {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: 0.25s ease;
+}
+
+.product:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.product h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.muted {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* -------------------------------
+   Buttons
+--------------------------------*/
+.btn {
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #0056d2;
+}
+
+.btn-outline {
+  background: white;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-outline:hover {
+  background: #007bff;
+  color: white;
+}
+
+.btn.saved {
+  background: #28a745 !important;
+  border-color: #28a745 !important;
+  color: white !important;
+}
+
+/* -------------------------------
+   Wishlist Count Badge
+--------------------------------*/
+#wishlist-count {
+  background: #ff4757;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 50%;
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+/* -------------------------------
+   MODAL (Quick View)
+--------------------------------*/
+#modal-backdrop,
+#quick-view-modal {
+  display: none;
+}
+
+#quick-view-modal.show,
+#modal-backdrop.show {
+  display: block;
+}
+
+#modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 999;
+}
+
+#quick-view-modal {
+  width: 500px;
+  max-width: 90%;
+  background: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  z-index: 1000;
+}
+
+#modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ff4757;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-content img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.modal-content h2 {
+  margin-bottom: 5px;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+/* -------------------------------
+   Responsive
+--------------------------------*/
+@media (max-width: 600px) {
+  .toolbar {
+    flex-direction: column;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
